@@ -84,6 +84,7 @@ RSpec.describe "SimpleAMS resource render demo" do # rubocop:disable RSpec/Descr
     let(:resource) do
       ResourceStruct.new(
         key: "value",
+        # DOES NOT WORK as Stuct.respond_to?(:each) making this an AMS Folder not Document
         relation: RelationStruct.new(
           rel_key: "relation value"
         )
