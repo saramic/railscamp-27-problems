@@ -1,20 +1,26 @@
 # frozen_string_literal: true
 
-source 'http://gems.railscamp.local'
-# source "https://rubygems.org"
+source "http://gems.railscamp.local"
+# source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 # gem "rails"
 
-gem 'rubocop', '~> 1.25'
-gem 'rubocop-performance', '~> 1.13'
-gem 'rubocop-rspec', '~> 2.8'
+gem "rubocop", "1.25.0"
+gem "rubocop-performance", "~> 1.13"
+gem "rubocop-rspec", "~> 2.8"
 # Pipelining commands on a Redis instance is deprecated and will be removed in Redis 5.0.0
-gem 'redis', '~> 4.5.1'
+gem "redis", "~> 4.5.1"
 
-gem 'sidekiq', '~> 6.4'
+gem "sidekiq", "~> 6.4"
 
-gem 'puma', '~> 5.6'
-gem 'rack', '~> 2.2'
-gem 'sinatra', '~> 2.1'
+gem "puma", "~> 5.6"
+gem "rack", "~> 2.2"
+gem "sinatra", "~> 2.1"
+
+gem "activerecord", "~> 6.1"
+gem "sqlite3", "~> 1.4"
+gem "standalone_migrations", "~> 6.1"
+
+gem "standard", "~> 1.7"
