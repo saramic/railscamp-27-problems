@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+# source "http://gems.railscamp.local"
+source "https://rubygems.org"
+
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+gem "rspec"
+
+gem "simple_ams", "~> 0.2.6"
+
+gem "rubocop", "1.25.0"
+gem "rubocop-performance"
+gem "rubocop-rspec"
+
+gem "standard", "~> 1.7"

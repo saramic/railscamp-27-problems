@@ -1,0 +1,17 @@
+# https://evilmartians.com/chronicles/rubocoping-with-legacy-bring-your-ruby-code-up-to-standard
+require:
+  - standard
+  - rubocop-rspec
+  - rubocop-performance
+
+# Use the defaults from https://github.com/testdouble/standard.
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+  UseCache: true
+  CacheRootDirectory: .
+  MaxFilesInCache: 10000
+
