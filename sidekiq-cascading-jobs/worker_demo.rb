@@ -19,6 +19,8 @@ ActiveRecord::Base.establish_connection(
   db_configuration["development"]
 )
 
+Sidekiq.options[:concurrency] = 1
+
 Sidekiq.configure_client do |config|
   config.redis = {db: 1}
 end
