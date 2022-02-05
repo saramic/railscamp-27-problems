@@ -14,8 +14,8 @@ class TestSerializer
   has_one :relation, serializer: TestRelationSerializer
 end
 
-ResourceStruct = Struct.new(:key, :relation)
-RelationStruct = Struct.new(:rel_key)
+ResourceStruct = Struct.new(:key, :relation, keyword_init: true)
+RelationStruct = Struct.new(:rel_key, keyword_init: true)
 
 RSpec.describe "SimpleAMS resource render demo" do # rubocop:disable RSpec/DescribeClass
   subject(:as_json) { adapter.as_json }
@@ -92,12 +92,7 @@ RSpec.describe "SimpleAMS resource render demo" do # rubocop:disable RSpec/Descr
 
     it "renders key and relation" do
       pending "working out what is different from OpenStruct"
-      # expected: {:key=>"value", :relation=>{:rel_key=>"relation value"}}
-      # got: {:key=>{:key=>"value",
-      #     :relation=>#<struct RelationStruct rel_key={:rel_key=>"relation value"}>
-      #   },
-      #   :relation=>nil}
-
+      # undefined method `rel_key' for "relation value":String
       expect(as_json).to eq(
         {
           key: "value",
