@@ -15,3 +15,8 @@ AllCops:
   CacheRootDirectory: .
   MaxFilesInCache: 10000
 
+RSpec/ExampleLength:
+  Enabled: false
+
+Style/OpenStructUse:
+  Enabled: true
