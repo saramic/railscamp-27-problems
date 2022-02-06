@@ -2,7 +2,7 @@ require "z_calculator"
 
 # rubocop:disable Style/NestedParenthesizedCalls
 RSpec.describe ZCalculator do
-  include described_class
+  include ZCalculator
 
   # NOTE: Michael likes this
   describe "math" do

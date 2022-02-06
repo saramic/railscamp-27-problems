@@ -25,6 +25,10 @@ test:
 .PHONY: build
 build: rubocop test
 
+.PHONY: demo
+demo:
+	bin/demo_math.rb one plus three_hundred
+
 .PHONY: usage
 usage:
 	@echo
@@ -36,4 +40,6 @@ usage:
 	@echo "${YELLOW}make rubocop-fix${NC}  lint fix"
 	@echo "${YELLOW}make test${NC}         test"
 	@echo "${YELLOW}make build${NC}        lint and test"
+	@echo
+	@echo "${YELLOW}make demo${NC}         run demo"
 	@echo

@@ -23,3 +23,6 @@ Style/OpenStructUse:
 
 RSpec/MultipleExpectations:
   Max: 5
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
