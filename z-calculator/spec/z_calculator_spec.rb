@@ -25,5 +25,22 @@ RSpec.describe ZCalculator do
     expect(one_hundred times nine).to eq 900
     expect(one times two times three times four times five).to eq 120
   end
+
+  it "subract 2 numbers" do
+    expect(one minus one).to eq 0
+    expect(one_hundred minus nine).to eq 91
+    expect(one minus two).to eq(-1)
+  end
+
+  it "divide 2 numbers" do
+    expect(one divide by one).to eq 1
+    expect(one_hundred divide by ten).to eq 10
+  end
+
+  it "divides 2 numbers and floors result to closest integer" do
+    expect(one_hundred divide by nine).to eq 11 # 11.111
+    expect(one_hundred divide by fifteen).to eq 6 # 6.667
+    expect(one divide by two).to eq 0 # 0.5
+  end
 end
 # rubocop:enable Style/NestedParenthesizedCalls

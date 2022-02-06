@@ -17,7 +17,19 @@ module ZCalculator
     ->(number = 0) { number.public_send(:+, coerced_number) }
   end
 
+  def minus(coerced_number)
+    ->(number = 0) { number.public_send(:-, coerced_number) }
+  end
+
   def times(coerced_number)
     ->(number = 0) { number.public_send(:*, coerced_number) }
+  end
+
+  def divide(coerced_number)
+    ->(number = 0) { number.public_send(:/, coerced_number) }
+  end
+
+  def by(args)
+    args
   end
 end
