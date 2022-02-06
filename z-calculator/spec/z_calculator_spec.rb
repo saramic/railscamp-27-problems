@@ -1,21 +1,23 @@
 require "z_calculator"
 
+# rubocop:disable Style/NestedParenthesizedCalls
 RSpec.describe ZCalculator do
   include described_class
 
-  it "one" do
-    expect(one).to eq(1)
+  # NOTE: Michael likes this
+  describe "math" do
+    subject(:expression) { eval self.class.description } # rubocop:disable Security/Eval
+
+    describe "one plus one" do
+      it { is_expected.to eq 2 }
+    end
   end
 
-  it "plus one" do
-    expect(plus(one).call).to eq(1)
-  end
-
-  it "adds one and one" do
-    expect(one(plus(one))).to eq(2)
-  end
-
-  it "adds two and two" do
-    expect(two(plus(two))).to eq(4)
+  # NOTE: Luca likes this
+  it "adds numbers" do
+    expect(one plus one).to eq 2
+    expect(one_hundred plus nine).to eq 109
+    expect(one plus two plus three plus four plus five).to eq 15
   end
 end
+# rubocop:enable Style/NestedParenthesizedCalls

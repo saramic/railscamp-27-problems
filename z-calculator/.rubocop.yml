@@ -20,3 +20,6 @@ RSpec/ExampleLength:
 
 Style/OpenStructUse:
   Enabled: true
+
+RSpec/MultipleExpectations:
+  Max: 5
