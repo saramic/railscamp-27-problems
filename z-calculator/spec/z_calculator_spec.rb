@@ -19,5 +19,11 @@ RSpec.describe ZCalculator do
     expect(one_hundred plus nine).to eq 109
     expect(one plus two plus three plus four plus five).to eq 15
   end
+
+  it "multiplies numbers" do
+    expect(one times one).to eq 1
+    expect(one_hundred times nine).to eq 900
+    expect(one times two times three times four times five).to eq 120
+  end
 end
 # rubocop:enable Style/NestedParenthesizedCalls

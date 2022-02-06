@@ -16,4 +16,8 @@ module ZCalculator
   def plus(coerced_number)
     ->(number = 0) { number.public_send(:+, coerced_number) }
   end
+
+  def times(coerced_number)
+    ->(number = 0) { number.public_send(:*, coerced_number) }
+  end
 end
