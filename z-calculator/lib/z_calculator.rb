@@ -27,7 +27,7 @@ module ZCalculator
   end
 
   # left associative
-  def divide(coerced_number)
+  def divided(coerced_number)
     ->(number = 0) { number.public_send(:/, coerced_number) }
   end
 

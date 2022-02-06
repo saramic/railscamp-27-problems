@@ -33,14 +33,14 @@ RSpec.describe ZCalculator do
   end
 
   it "divide 2 numbers" do
-    expect(one divide by one).to eq 1
-    expect(one_hundred divide by ten).to eq 10
+    expect(one divided by one).to eq 1
+    expect(one_hundred divided by ten).to eq 10
   end
 
   it "divides 2 numbers and floors result to closest integer" do
-    expect(one_hundred divide by nine).to eq 11 # 11.111
-    expect(one_hundred divide by fifteen).to eq 6 # 6.667
-    expect(one divide by two).to eq 0 # 0.5
+    expect(one_hundred divided by nine).to eq 11 # 11.111
+    expect(one_hundred divided by fifteen).to eq 6 # 6.667
+    expect(one divided by two).to eq 0 # 0.5
   end
 
   describe "left-associative operations on many numbers" do
