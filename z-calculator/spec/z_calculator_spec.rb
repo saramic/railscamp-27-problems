@@ -42,5 +42,17 @@ RSpec.describe ZCalculator do
     expect(one_hundred divide by fifteen).to eq 6 # 6.667
     expect(one divide by two).to eq 0 # 0.5
   end
+
+  describe "left-associative operations on many numbers" do
+    it "subtract multiple numbers" do
+      pending "left associative operations like minus and divide by for multiple numbers is NOT supported"
+      expect(zero plus one minus one minus one).to eq(-2)
+    end
+
+    it "divide multiple numbers" do
+      pending "left associative operations like minus and divide by for multiple numbers is NOT supported"
+      expect(twelve divided by two divided by three).to eq(2)
+    end
+  end
 end
 # rubocop:enable Style/NestedParenthesizedCalls

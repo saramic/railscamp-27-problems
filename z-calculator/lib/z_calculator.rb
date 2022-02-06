@@ -17,6 +17,7 @@ module ZCalculator
     ->(number = 0) { number.public_send(:+, coerced_number) }
   end
 
+  # left associative
   def minus(coerced_number)
     ->(number = 0) { number.public_send(:-, coerced_number) }
   end
@@ -25,6 +26,7 @@ module ZCalculator
     ->(number = 0) { number.public_send(:*, coerced_number) }
   end
 
+  # left associative
   def divide(coerced_number)
     ->(number = 0) { number.public_send(:/, coerced_number) }
   end
