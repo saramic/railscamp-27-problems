@@ -10,10 +10,10 @@ module ZCalculator
     num = NumbersInWords.in_numbers(method.to_s)
 
     return num unless args.any?
-    num.public_send(*args.first)
+    args.first.call(num)
   end
 
-  def plus(coeerced_number)
-    ["+", coeerced_number]
+  def plus(coerced_number)
+    ->(number = 0) { number.public_send(:+, coerced_number) }
   end
 end
