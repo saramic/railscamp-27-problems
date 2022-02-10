@@ -18,4 +18,8 @@ ActiveRecord::Base.establish_connection(
   db_configuration["development"]
 )
 
-pp User.count
+[
+  User
+].each do |model|
+  pp [model.name, model.count]
+end

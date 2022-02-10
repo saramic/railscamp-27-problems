@@ -46,6 +46,15 @@ irb: check-tools
 demo: check-tools
 	bundle exec ruby -I . -e 'require "worker_demo"; WorkerDemo.perform_async("hello")'
 
+.PHONY: count
+count:
+	bundle exec ruby app/main.rb
+
+.PHONY: clean
+clean:
+	rm -f .session.key
+	bundle exec rake db:drop db:create db:migrate
+
 .PHONY: usage
 usage:
 	@echo
@@ -57,4 +66,7 @@ usage:
 	@echo "${YELLOW}make sidekiq-web${NC}     run sidekiq-web"
 	@echo "${YELLOW}make irb${NC}             run irb with worker loaded"
 	@echo "${YELLOW}make demo${NC}            run some demo jobs against sidekiq"
+	@echo "${YELLOW}make count${NC}           do a count of created models"
+	@echo
+	@echo "${YELLOW}make clean${NC}           drop the db and delete any temporary files"
 	@echo
