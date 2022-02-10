@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_083343) do
+ActiveRecord::Schema.define(version: 2022_02_10_090312) do
+
+  create_table "email_sends", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["user_id"], name: "index_email_sends_on_user_id"
+  end
+
+  create_table "outboxes", force: :cascade do |t|
+    t.string "model_type", null: false
+    t.integer "model_id", null: false
+    t.string "event", null: false
+    t.datetime "created_at", null: false
+    t.index ["model_type", "model_id", "event"], name: "index_outboxes_on_model_type_and_model_id_and_event"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
 end

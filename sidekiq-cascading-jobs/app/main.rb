@@ -6,6 +6,8 @@ $LOAD_PATH << File.join(
   File.expand_path(__dir__)
 )
 require "models/user"
+require "models/email_send"
+require "models/outbox"
 
 def db_configuration
   db_configuration_file = File.join(
@@ -19,7 +21,9 @@ ActiveRecord::Base.establish_connection(
 )
 
 [
-  User
+  User,
+  EmailSend,
+  Outbox,
 ].each do |model|
-  pp [model.name, model.count]
+  pp [model.name, model.count, model.all]
 end

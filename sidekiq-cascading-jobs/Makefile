@@ -44,7 +44,11 @@ irb: check-tools
 
 .PHONY: demo
 demo: check-tools
-	bundle exec ruby -I . -e 'require "worker_demo"; WorkerDemo.perform_async("hello")'
+	DEMO_ARG=Michael bundle exec ruby -I . -e 'require "worker_demo"; WorkerDemo.perform_async(ENV.fetch("DEMO_ARG"))'
+
+.PHONY: clear-outbox
+clear-outbox:
+	bundle exec ruby -I . -e 'require "worker_demo"; Outbox.all.each{ WorkerOutbox.perform_async(_1.id) }'
 
 .PHONY: count
 count:
@@ -62,11 +66,23 @@ usage:
 	@echo
 	@echo "Development"
 	@echo
-	@echo "${YELLOW}make sidekiq${NC}         run sidekiq with a demo worker"
-	@echo "${YELLOW}make sidekiq-web${NC}     run sidekiq-web"
-	@echo "${YELLOW}make irb${NC}             run irb with worker loaded"
-	@echo "${YELLOW}make demo${NC}            run some demo jobs against sidekiq"
-	@echo "${YELLOW}make count${NC}           do a count of created models"
+	@echo "${YELLOW}make sidekiq${NC}                     run sidekiq with a demo worker"
+	@echo "${YELLOW}make sidekiq-web${NC}                 run sidekiq-web"
+	@echo "${YELLOW}make irb${NC}                         run irb with worker loaded"
+	@echo "${YELLOW}make demo${NC}                        run some demo jobs against sidekiq"
+	@echo "${YELLOW}make count${NC}                       do a count of created models"
 	@echo
-	@echo "${YELLOW}make clean${NC}           drop the db and delete any temporary files"
+	@echo "${YELLOW}make clean${NC}                       drop the db and delete any temporary files"
+	@echo
+	@echo "Rake targets"
+	@echo
+	@echo "${YELLOW}rake -T${NC}                          list targets"
+	@echo "${YELLOW}rake db:create${NC}                   create the db"
+	@echo "${YELLOW}rake db:migrate${NC}                  migrate the db"
+	@echo "${YELLOW}rake 'db:new_migration[users]'${NC}   create a migration"
+	@echo
+	@echo "IRB"
+	@echo
+	@echo "${YELLOW}bundle exec irb -r ./app/main.rb${NC} list targets"
+	@echo "${YELLOW}make clear-outbox${NC}                clear any outbox items"
 	@echo
